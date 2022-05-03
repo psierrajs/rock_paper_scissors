@@ -20,7 +20,7 @@ function computerPlay() {
   }
 }
 const computerSelection = computerPlay().toLowerCase();
-console.log(computerSelection);
+
 
 /*Defining parameter with player selection. toLowerCase() makes it
 case insensitive*/
@@ -28,10 +28,13 @@ case insensitive*/
 let playerSelection = window.prompt("Choose Rock, Paper or Scissors :");
 playerSelection = playerSelection.toLowerCase();
 
-console.log(playerSelection);
 
 
-/*Function playRound below*/
+
+/*Function playRound below
+takes imput from user and compares it width
+randomly generated choice by computer
+Returns result with strings*/
 
 function playRound(playerSelection,computerSelection) {
   if (computerSelection == playerSelection) {
@@ -42,7 +45,7 @@ function playRound(playerSelection,computerSelection) {
     return "You Lost! Rock beats Scissors"
   } else if (computerSelection == "paper" && playerSelection == "scissors") {
     return "You won! Scissorts beat paper"
-  } else if (computerScience == "paper" && playerSelection == "rock") {
+  } else if (computerSelection == "paper" && playerSelection == "rock") {
     return "You lost! Paper beats rock"
   } else if (computerSelection == "scissors" && playerSelection == "paper") {
     return "You lost! Scissors beat paper"
