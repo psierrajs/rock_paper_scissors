@@ -3,20 +3,46 @@
 
 
 let randomNumber = Math.floor(Math.random()*(3)+1);
+
 function computerPlay () {
   switch (randomNumber) {
     case 1:
-      return ("Rock");
+      return "rock";
       break;
     case 2:
-      return ("Paper");
+      return "paper";
       break;
     case 3:
-      return ("Scissors");
-      break;
-      
+      return "scissors";
+      break;    
   }
-  
 }
-let computerSelection = computerPlay();
-console.log(computerSelection);
+
+
+//Function playRound(). It takes two parameters (playerSelection and computerSelection)
+//and then returns a string declaring the winner of the round.
+
+
+
+function playRound(player,computer) {
+  let tie = "It is a tie";
+  let computerWin = `You lose! ${computer} beats ${player}`;
+  let playerWin = `You win! ${player} beats ${computer}`;
+  if (player == computer) {
+    return tie;
+  } else if ((player == "rock" && computer == "paper") || 
+    (player == "paper" && computer == "scissors") || 
+    (player == "scissors" && computer == "rock")) {
+    return computerWin;
+  } else if ((player == "rock" && computer == "scissors") ||
+    (player == "paper" && computer == "rock") || 
+    (player == "scissors" && computer == "paper")){
+    return playerWin;
+  }
+}
+
+const playerSelection = "rock";
+const computerSelection = computerPlay();
+console.log("playerSelection : " + playerSelection);
+console.log("computerSelection : " + computerSelection);
+console.log(playRound(playerSelection,computerSelection));
