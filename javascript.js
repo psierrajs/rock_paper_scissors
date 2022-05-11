@@ -22,7 +22,8 @@ function computerPlay () {
 //Function playRound(). It takes two parameters (playerSelection and computerSelection)
 //and then returns a string declaring the winner of the round.
 
-let counter = 0;
+let playerCounter = 0;
+let computerCounter = 0;
 
 function playRound(player,computer) {
   let tieMessage = "It is a tie";
@@ -30,23 +31,26 @@ function playRound(player,computer) {
   let playerWinMessage = `You win! ${player} beats ${computer}`;
   
   if (player == computer) {
-    counter;
+    playerCounter;
+    computerCounter;
     
-    return (tieMessage) + (" | Result: You won: " + counter + " times!");
+    return (tieMessage) + (" | Player: " + playerCounter + "; Computer: " + computerCounter);
    
     
   } else if ((player == "rock" && computer == "paper") || 
     (player == "paper" && computer == "scissors") || 
     (player == "scissors" && computer == "rock")) {
-    counter;
-    return (computerWinMessage) + (" | Result: You won: " + counter + " times!");
+    playerCounter;
+    computerCounter += 1;
+    return (computerWinMessage) + (" | Player: " + playerCounter + "; Computer: " + computerCounter);
     
     
   } else if ((player == "rock" && computer == "scissors") ||
     (player == "paper" && computer == "rock") || 
     (player == "scissors" && computer == "paper")){
-    counter += 1;
-    return (playerWinMessage) + (" | Result: You won " + counter + " times!");   
+    playerCounter += 1;
+    computerCounter;
+    return (playerWinMessage) + (" | Player: " + playerCounter + "; Computer: " + computerCounter);   
   }
   
 
@@ -65,7 +69,18 @@ function game() {
     console.log("Round: " + (i + 1) + " Your Choice : " + playerSelection + " | " + 
     "Computer's Choice : " + computerSelection);
     console.log(playRound(playerSelection,computerSelection));
+    
   
+  }
+  //add if block with counter section indicating the winner
+  
+  
+  if (playerCounter > computerCounter) {
+    console.log("\nFinal Result: Player wins!");
+  } else if (playerCounter == computerCounter) {
+    console.log("\nFinal Result: It is a tie");
+  } else {
+    console.log("\nFinal Result: Computer Wins!");
   }
 }
 
