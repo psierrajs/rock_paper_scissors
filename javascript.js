@@ -61,9 +61,9 @@ function playRound(player,computer) {
 // Function game(). To play rock, paper, scissors game with computer five times
 // Returns winner and score of both, the player and the computer
 
-
-function game() {
-  for (let i = 0; i < 5; i++) {
+// n in game(n) refers to number of times to play the game
+function game(n) {
+  for (let i = 0; i < n; i++) {
     let playerSelection = prompt ("Rock, Paper or Scissors?", "your choice").toLowerCase();
     let computerSelection = computerPlay();
     console.log("Round: " + (i + 1) + " Your Choice : " + playerSelection + " | " + 
@@ -84,5 +84,5 @@ function game() {
   }
 }
 
-game();
+game(5);
 
