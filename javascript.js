@@ -58,7 +58,7 @@ function playRound(player,computer) {
 
 
 
-// Function game(). To play rock, paper, scissors game with computer five times
+// Function game(). To play rock, paper, scissors game with computer n times
 // Returns winner and score of both, the player and the computer
 
 // n in game(n) refers to number of times to play the game
@@ -84,5 +84,16 @@ function game(n) {
   }
 }
 
-game(5);
+// bottons below
 
+const rockBtn = document.getElementById("rockBtn");
+
+rockBtn.addEventListener("click", function(e) {
+  console.log("You have chosen 'rock'");
+});
+paperBtn.addEventListener("click", function(e) {
+  console.log("You have chosen 'paper'");
+});
+scissorsBtn.addEventListener("click", function(e) {
+  console.log("You have chosen 'scissors'");
+});
