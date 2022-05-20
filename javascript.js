@@ -86,14 +86,17 @@ function game(n) {
 
 // bottons below
 
-const rockBtn = document.getElementById("rockBtn");
 
-rockBtn.addEventListener("click", function(e) {
-  console.log("You have chosen 'rock'");
+
+rockBtn.addEventListener("click",function(e) {
+  playRound("rock", computerPlay());
+  console.log("Rock has been chosen");
 });
 paperBtn.addEventListener("click", function(e) {
+  playRound("paper", computerPlay());
   console.log("You have chosen 'paper'");
 });
 scissorsBtn.addEventListener("click", function(e) {
+  playRound("scissors", computerPlay());
   console.log("You have chosen 'scissors'");
 });
