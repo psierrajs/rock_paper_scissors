@@ -48,7 +48,8 @@ function playRound() {
     (playerSelection == 'Paper' && computerChoice == 'Rock') || 
     (playerSelection == 'Scissors' && computerChoice == 'Paper')){
       
-  } resultDisplay.innerHTML = result;
+  } 
+  resultDisplay.innerHTML = result;
   
 
 }
