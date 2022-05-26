@@ -10,7 +10,7 @@ possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click
   playerSelection = e.target.id;
   userChoiceDisplay.innerHTML = playerSelection;
   computerPlay();
-  playRound();
+  playRound(rock,computerChoice);
 }))
 
 
@@ -74,27 +74,28 @@ function playRound(player,computer) {
 // Returns winner and score of both, the player and the computer
 
 // n in game(n) refers to number of times to play the game
-function game(n) {
-  for (let i = 0; i < n; i++) {
-    // let playerSelection = prompt ("Rock, Paper or Scissors?", "your choice").toLowerCase();
-    let computerSelection = computerPlay();
-    console.log("Round: " + (i + 1) + " Your Choice : " + playerSelection + " | " + 
-    "Computer's Choice : " + computerSelection);
-    console.log(playRound(playerSelection,computerSelection));
+// function game(n) {
+//   for (let i = 0; i < n; i++) {
+//     // let playerSelection = prompt ("Rock, Paper or Scissors?", "your choice").toLowerCase();
+//     let computerSelection = computerPlay();
+//     console.log("Round: " + (i + 1) + " Your Choice : " + playerSelection + " | " + 
+//     "Computer's Choice : " + computerSelection);
+//     console.log(playRound(playerSelection,computerSelection));
     
   
-  }
+//   }
+
   //add if block with counter section indicating the winner
   
   
-  if (playerCounter > computerCounter) {
-    console.log("\nFinal Result: Player wins!");
-  } else if (playerCounter == computerCounter) {
-    console.log("\nFinal Result: It is a tie");
-  } else {
-    console.log("\nFinal Result: Computer Wins!");
-  }
-}
+//   if (playerCounter > computerCounter) {
+//     console.log("\nFinal Result: Player wins!");
+//   } else if (playerCounter == computerCounter) {
+//     console.log("\nFinal Result: It is a tie");
+//   } else {
+//     console.log("\nFinal Result: Computer Wins!");
+//   }
+// }
 
 // bottons below
 
@@ -113,4 +114,3 @@ function game(n) {
 //   console.log("You have chosen 'scissors'");
 // });
 
-game(2);
