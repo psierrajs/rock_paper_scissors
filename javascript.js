@@ -1,6 +1,17 @@
 //function computerPlay. Takes number 1, 2 or 3 randomly and returns
 //rock, papers or scissors depending on the number's value.
 
+const possibleChoices = document.querySelectorAll('button')
+const resultDisplay = document.getElementById('result');
+const userChoiceDisplay = document.getElementById("user-choice");
+const computerChoiceDisplay = document.getElementById("computer-choice");
+let userChoice;
+possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
+  playerSelection = e.target.id;
+  userChoiceDisplay.innerHTML = playerSelection;
+  computerPlay();
+  playRound();
+}))
 
 
 function computerPlay () {
@@ -16,6 +27,7 @@ function computerPlay () {
       return "scissors";
       break;    
   }
+  computerChoiceDisplay.innerHTML = computerChoice
 }
 
 
@@ -64,7 +76,7 @@ function playRound(player,computer) {
 // n in game(n) refers to number of times to play the game
 function game(n) {
   for (let i = 0; i < n; i++) {
-    let playerSelection = prompt ("Rock, Paper or Scissors?", "your choice").toLowerCase();
+    // let playerSelection = prompt ("Rock, Paper or Scissors?", "your choice").toLowerCase();
     let computerSelection = computerPlay();
     console.log("Round: " + (i + 1) + " Your Choice : " + playerSelection + " | " + 
     "Computer's Choice : " + computerSelection);
@@ -88,15 +100,17 @@ function game(n) {
 
 
 
-rockBtn.addEventListener("click",function(e) {
-  playRound("rock", computerPlay());
-  console.log("Rock has been chosen");
-});
-paperBtn.addEventListener("click", function(e) {
-  playRound("paper", computerPlay());
-  console.log("You have chosen 'paper'");
-});
-scissorsBtn.addEventListener("click", function(e) {
-  playRound("scissors", computerPlay());
-  console.log("You have chosen 'scissors'");
-});
+// Rock.addEventListener("click",function(e) {
+//   playRound("rock", computerPlay());
+//   console.log("Rock has been chosen");
+// });
+// paperBtn.addEventListener("click", function(e) {
+//   playRound("paper", computerPlay());
+//   console.log("You have chosen 'paper'");
+// });
+// scissorsBtn.addEventListener("click", function(e) {
+//   playRound("scissors", computerPlay());
+//   console.log("You have chosen 'scissors'");
+// });
+
+game(2);
