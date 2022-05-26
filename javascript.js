@@ -3,14 +3,16 @@
 
 const possibleChoices = document.querySelectorAll('button')
 const resultDisplay = document.getElementById('result');
-const userChoiceDisplay = document.getElementById("user-choice");
-const computerChoiceDisplay = document.getElementById("computer-choice");
+const userChoiceDisplay = document.getElementById('user-choice');
+const computerChoiceDisplay = document.getElementById('computer-choice');
+
 let userChoice;
+let result;
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
   playerSelection = e.target.id;
   userChoiceDisplay.innerHTML = playerSelection;
   computerPlay();
-  playRound(rock,computerChoice);
+  playRound();
 }))
 
 
@@ -18,13 +20,13 @@ function computerPlay () {
   let randomNumber = Math.floor(Math.random()*(3)+1);
   switch (randomNumber) {
     case 1:
-      return "rock";
+      computerChoice = 'Rock';
       break;
     case 2:
-      return "paper";
+      computerChoice = 'Paper';
       break;
     case 3:
-      return "scissors";
+      computerChoice = 'Scissors';
       break;    
   }
   computerChoiceDisplay.innerHTML = computerChoice
@@ -34,36 +36,24 @@ function computerPlay () {
 //Function playRound(). It takes two parameters (playerSelection and computerSelection)
 //and then returns a string declaring the winner of the round.
 
-let playerCounter = 0;
-let computerCounter = 0;
+// let playerCounter = 0;
+// let computerCounter = 0;
 
-function playRound(player,computer) {
-  let tieMessage = "It is a tie";
-  let computerWinMessage = `You lose! ${computer} beats ${player}`;
-  let playerWinMessage = `You win! ${player} beats ${computer}`;
+function playRound() {
   
-  if (player == computer) {
-    playerCounter;
-    computerCounter;
+  if (playerSelection == computerChoice) {
+    result = 'It is a tie!';
+      
+  } else if ((playerSelection == 'Rock' && computerChoice == 'Paper') || 
+    (playerSelection == 'Paper' && computerChoice == 'Scissors') || 
+    (playerSelection == 'Scissors' && computerChoice == 'Rock')) {
+    result = 'You Lose!';
     
-    return (tieMessage) + (" | Player: " + playerCounter + "; Computer: " + computerCounter);
-   
-    
-  } else if ((player == "rock" && computer == "paper") || 
-    (player == "paper" && computer == "scissors") || 
-    (player == "scissors" && computer == "rock")) {
-    playerCounter;
-    computerCounter += 1;
-    return (computerWinMessage) + (" | Player: " + playerCounter + "; Computer: " + computerCounter);
-    
-    
-  } else if ((player == "rock" && computer == "scissors") ||
-    (player == "paper" && computer == "rock") || 
-    (player == "scissors" && computer == "paper")){
-    playerCounter += 1;
-    computerCounter;
-    return (playerWinMessage) + (" | Player: " + playerCounter + "; Computer: " + computerCounter);   
-  }
+  } else if ((playerSelection == 'Rock' && computerChoice == 'Scissors') ||
+    (playerSelection == 'Paper' && computerChoice == 'Rock') || 
+    (playerSelection == 'Scissors' && computerChoice == 'Paper')){
+      
+  } resultDisplay.innerHTML = result;
   
 
 }
