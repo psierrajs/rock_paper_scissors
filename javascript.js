@@ -6,6 +6,7 @@ const userChoiceDisplay = document.getElementById('user-choice');
 const computerChoiceDisplay = document.getElementById('computer-choice');
 const userScoreDisplay = document.getElementById('userScore');
 const computerScoreDisplay = document.getElementById('computerScore');
+const finalResultDisplay = document.getElementById('final-result');
 let userChoice;
 let result;
 let userScore = 0;
@@ -38,6 +39,8 @@ function computerPlay () {
 
 
 function playRound() {
+
+  
   
   if (playerSelection === computerChoice) {
     result = 'It is a tie!';
@@ -57,11 +60,19 @@ function playRound() {
     result = 'You Win!';
     userScore += 1;
     computerScore = computerScore + 0;
-  } 
+  }
+  
+  if (userScore >= 5 && computerScore < 5) {
+    finalResultDisplay.innerHTML = 'You won the game!';
+  } else if (userScore < 5 && computerScore >= 5) {
+    finalResultDisplay.innerHTML = 'Computer wins the game!';
+  }
   userScoreDisplay.innerHTML = userScore;
   computerScoreDisplay.innerHTML = computerScore;
   resultDisplay.innerHTML = result;
   
+
+
 
 }
 
