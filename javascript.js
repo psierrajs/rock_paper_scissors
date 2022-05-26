@@ -36,17 +36,17 @@ function computerPlay () {
 
 function playRound() {
   
-  if (playerSelection == computerChoice) {
+  if (playerSelection === computerChoice) {
     result = 'It is a tie!';
       
-  } else if ((playerSelection == 'Rock' && computerChoice == 'Paper') || 
-    (playerSelection == 'Paper' && computerChoice == 'Scissors') || 
-    (playerSelection == 'Scissors' && computerChoice == 'Rock')) {
+  } else if ((playerSelection === 'Rock' && computerChoice === 'Paper') || 
+    (playerSelection === 'Paper' && computerChoice === 'Scissors') || 
+    (playerSelection === 'Scissors' && computerChoice === 'Rock')) {
     result = 'You Lose!';
     
-  } else if ((playerSelection == 'Rock' && computerChoice == 'Scissors') ||
-    (playerSelection == 'Paper' && computerChoice == 'Rock') || 
-    (playerSelection == 'Scissors' && computerChoice == 'Paper')){
+  } else if ((playerSelection === 'Rock' && computerChoice === 'Scissors') ||
+    (playerSelection === 'Paper' && computerChoice === 'Rock') || 
+    (playerSelection === 'Scissors' && computerChoice === 'Paper')){
       
   } 
   resultDisplay.innerHTML = result;
